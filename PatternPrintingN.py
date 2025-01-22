@@ -58,6 +58,13 @@ def printNumTringular(n):
         print(s)
 printNumTringular(5)
 
+# output:
+#     1
+#    2_2
+#   3_3_3
+#  4_4_4_4
+# 5_5_5_5_5
+
 print("....................")
 
 def printNumIncreasing(n):
@@ -69,6 +76,13 @@ def printNumIncreasing(n):
 
 printNumIncreasing(5)
 
+# Output:
+# 1
+# 12
+# 123
+# 1234
+# 12345
+
 print("....................")
 
 def printNumIncreasingRev(n):
@@ -79,6 +93,13 @@ def printNumIncreasingRev(n):
         print(s)
 
 printNumIncreasingRev(5)
+
+# Output:
+# 12345
+# 1234
+# 123
+# 12
+# 1
 
 print("....................")
 
@@ -96,6 +117,13 @@ def printZero_onetriangle(n):
         print(s)
 
 printZero_onetriangle(5)
+
+# Output:
+# 1
+# 01
+# 101
+# 0101
+# 10101
 
 def printZero_onetriangle2(n):
     start = 1
@@ -117,6 +145,13 @@ def printZero_onetriangle2(n):
 
 printZero_onetriangle2(5)
 
+# Output:
+# 1
+# 01
+# 101
+# 0101
+# 10101
+
 def printZero_onetriangle3(n):
     start = ''
     for i in range (1,n+1):
@@ -128,6 +163,13 @@ def printZero_onetriangle3(n):
         print(start)
 
 printZero_onetriangle3(5)
+
+# Output:
+# 1
+# 01
+# 101
+# 0101
+# 10101
 
 print("....................")
 
@@ -160,6 +202,13 @@ def printRohmbus(n):
 
 printRohmbus(5)
 
+# Output:
+# *****
+#   *****
+#    *****
+#     *****
+#      *****
+
 print("....................")
 
 def printDiamond(n):
@@ -171,14 +220,8 @@ def printDiamond(n):
             s += "*"
             if j != i-1:
                 s+=' '
-    for i in range(1, n):
-        for j in range(i, 0, -1):
-            s += "*"
-            if j != i-1:
-                s+=' '
+    
 
-        for j in range(n-i):
-            s += " "
         print(s)
 
 printDiamond(5)
