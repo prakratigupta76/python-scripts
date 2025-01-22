@@ -173,19 +173,24 @@ printZero_onetriangle3(5)
 
 print("....................")
 
-# def printPalindromeTri(n):
-#     for i in range(1, n+1):
-#         s = ''
-#         k = "1"
-#         for j in range(n-i):
-#             s += " "
-#         for j in range(i):
-#             s += k
-#             k += str(i)
+def printPalindromeTri(n):
+    s = '1'
+    for i in range(2, n+1):
+        space = ''
+    
+        for j in range(n-i):
+            space += " "
         
-#         print(s)
+        print(space + s)
+        s = str(i) + s + str(i)
 
-# printPalindromeTri(5)
+printPalindromeTri(5)
+
+# Output:
+#    1
+#   212
+#  32123
+# 4321234
 
 print("....................")
 
@@ -195,7 +200,7 @@ def printRohmbus(n):
 
         for j in range(n-i+1):
             s += " "
-        for j in range(n):
+        for j in range(n-1):
             s += "*"
 
         print(s)
@@ -223,5 +228,15 @@ def printDiamond(n):
     
 
         print(s)
+    for i in range(n-1, 0, -1):
+        s = ''
+        for j in range(n-i):
+            s += " "
+        for j in range(i):
+            s += "*"
+            if j != i-1:
+                s+=' '
+    
 
+        print(s)
 printDiamond(5)
