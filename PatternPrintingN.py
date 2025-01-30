@@ -208,7 +208,7 @@ def printRohmbus(n):
 printRohmbus(5)
 
 # Output:
-# *****
+#  *****
 #   *****
 #    *****
 #     *****
@@ -240,3 +240,440 @@ def printDiamond(n):
 
         print(s)
 printDiamond(5)
+# output:
+#     *
+#    * *
+#   * * *
+#  * * * *
+# * * * * *
+#  * * * *
+#   * * *
+#    * *
+#     *
+
+
+print("----------------------------")
+
+def printRightHalf(n):
+    for i in range(1,n+1):
+        s = ''
+        for j in range(i):
+            s+= "*"
+
+        print(s)
+printRightHalf(5)
+# Output:
+# *
+# **
+# ***
+# ****
+# *****
+
+print("----------------------------")
+
+
+def printRevRightHalf(n):
+    for i in range(1,n+1):
+        s = ''
+        for j in range(n-i+1):
+            s+= "*"
+
+        print(s)
+printRevRightHalf(5)
+# Output:
+# *****
+# ****
+# ***
+# **
+# *
+
+print("----------------------------")
+
+
+def printLeftHalfPyramid(n):
+    
+    for i in range(1,n+1):
+        s = ""
+        for j in range(n-i+1):
+            s+= " "
+        for j in range(i):
+            s+= "*"
+
+        print(s)
+
+printLeftHalfPyramid(5)
+# Output:
+#      *
+#     **
+#    ***
+#   ****
+#  *****
+
+print("----------------------------")
+
+def printRevLeftHalfPyramid(n):
+    
+    for i in range(1,n+1):
+        s = ""
+        for j in range(i):
+            s+= " "
+        for j in range(n-i+1):
+            s+= "*"
+
+        print(s)
+
+printRevLeftHalfPyramid(5)
+# Output:
+#  *****
+#   ****
+#    ***
+#     **
+#      *
+
+print("----------------------------")
+
+def printKpattern(n):
+    
+    for i in range(1,n+1):
+        s = ""
+        for j in range(n-i+1):
+            s+= "*"
+        
+        print(s)
+    for i in range(2,n+1):
+        s = ""
+        for j in range(i):
+            s+= "*"
+    
+        print(s)
+printKpattern(5)
+# Output:
+# *****
+# ****
+# ***
+# **
+# *
+# **
+# ***
+# ****
+# *****
+
+print("----------------------------")
+
+# def printButtrflyStar(n):
+#     for i in range(1,n-i+1):
+#         s = ''
+#         for j in range(i):
+#             s+= "*"
+
+#         print(s)
+
+#     for i in range(2,n-i+1):
+#         s = ''
+#         for j in range(n-i+1):
+#             s+= "*"
+
+#         print(s)
+
+
+#     # for i in range(1,n+1):
+#     #     s = ''
+#     #     for j in range(n-i+1):
+#     #         s+= " "
+#     #     for j in range(i):
+#     #         s+= "*"
+
+#     #     print(s)
+
+#     # for i in range(2,n+1):
+#     #     s = ''
+#     #     for j in range(i):
+#     #         s+= " "
+#     #     for j in range(n-i+1):
+#     #         s+= "*"
+
+#     #     print(s)
+
+# printButtrflyStar(5)
+# Output:
+# 
+
+print("----------------------------")
+
+def printTriStar(n):
+
+    for i in range(1,n+1):
+        s = ''
+        for j in range(n-i+1):
+            s += " "
+        for j in range(i):
+            s+="*"
+            if j != i:
+                s += " "
+        print(s)
+printTriStar(5)
+# Output:
+#      *
+#     * *
+#    * * *
+#   * * * *
+#  * * * * *
+
+
+print("----------------------------")
+
+def printRevNumStar(n):
+
+    for i in range(n, 0, -1):
+        s = ''
+        for j in range(n-i, 0, -1): 
+            s+=" "
+        for j in range(n-i+1, n+1):
+            s+= str(j)
+            s+= " "
+        print(s)
+printRevNumStar(5)
+# Output: 
+# 1 2 3 4 5
+#  2 3 4 5
+#   3 4 5
+#    4 5
+#     5
+
+print("----------------------------")
+
+import math
+def printButtrflyStar(n):
+    n = math.ceil(n/2)
+    for i in range(1,n+1):
+        s = ''
+        for j in range(i):
+            if j != n-1:
+                s += "*"
+        for j in range(n-i-1) :
+            s+=" "   
+        
+        for j in range(n-i) :
+            s+=" "
+        for j in range(i):
+            s+="*"
+        print(s)
+
+
+    for i in range(2,n+1) :
+        s = '' 
+        for j in range(n-i+1):
+            s+="*"
+        for j in range(i-2):
+            s += " "
+        
+        for j in range(i-1):
+            s += " "
+        for j in range(n-i+1):
+            s+="*"
+        print(s)
+
+printButtrflyStar(5)
+# Output: 
+# *   *
+# ** **
+# *****
+# ** **
+# *   *
+print("----------------------------")
+
+def printHollowTri(n):
+    for i in range(1, n+1):
+        s = ''
+        for j in range(n-i):
+            s += " "
+        for j in range(1, i+1):
+            if i == n:
+                s += "* "
+                
+            else:
+                if j == 1 or j == i:
+                    s+="* "
+                else:
+                    s+="  "
+        print(s.rstrip())
+
+printHollowTri(5)
+# Output:
+#     *
+#    * *
+#   *   *
+#  *     *
+# * * * * *
+
+print("----------------------------")
+
+def printMirrorTri(n):
+    for i in range(n,0,-1):
+        s = ''
+        for j in range(n-i, 0, -1): 
+            s+=" "
+        for j in range(n-i+1, n+1):
+            s+= str(j)
+            s+= " "
+        print(s)
+    for i in range(2,n+1):
+        s = ''
+        for j in range(n-i, 0, -1): 
+            s+=" "
+        for j in range(n-i+1, n+1):
+            s+= str(j)
+            s+= " "
+    
+        print(s)
+printMirrorTri(5)
+# Output:
+# 1 2 3 4 5
+#  2 3 4 5
+#   3 4 5
+#    4 5
+#     5 
+#    4 5
+#   3 4 5
+#  2 3 4 5
+# 1 2 3 4 5
+print("----------------------------")
+
+def printRevHollowTri(n):
+    for i in range(n,0,-1):
+        s = ''
+        for j in range(n-i):
+            s += " "
+        for j in range(1, i+1):
+            if i == n or j == 1 or j == i:
+                    s+="* "
+            else:
+                s+="  "
+        print(s.rstrip())
+printRevHollowTri(5)
+# def printRevHollowTri(n):
+#     for i in range(n, 0, -1):
+#         s = ' ' * (n - i)  # Add leading spaces
+
+#         for j in range(1, i + 1):  # Print '*' and spaces
+#             if i == n or j == 1 or j == i:
+#                 s += "* "
+#             else:
+#                 s += "  "  # Two spaces to maintain alignment
+
+#         print(s.rstrip())  # Remove extra spaces at the end
+
+# printRevHollowTri(5)
+# Output:
+# * * * * *
+#  *     *
+#   *   *
+#    * *
+#     *
+print("----------------------------")
+
+def printHollowDiamond(n):
+    for i in range(1,n+1):
+        s = ''
+        for j in range(n-i):
+            s += " "
+        for j in range(1, i+1):
+            if j == 1 or j == i:
+                    s+="* "
+            else:
+                s+="  "
+        print(s.rstrip())
+
+    for i in range(n-1,0,-1):
+        s = ''
+        for j in range(n-i):
+            s += " "
+        for j in range(1, i+1):
+            if j == 1 or j == i:
+                    s+="* "
+            else:
+                s+="  "
+        print(s.rstrip())
+printHollowDiamond(5)
+# output:
+#     *
+#    * *
+#   *   *
+#  *     *
+# *       *
+#  *     *
+#   *   *
+#    * *
+#     *
+print("----------------------------")
+
+def printHollowHourglass(n):
+    for i in range(n,1,-1):
+        s = ''
+        for j in range(n-i):
+            s += " "
+        for j in range(1, i+1):
+            if i == n or j == 1 or j == i:
+                    s+="* "
+            else:
+                s+="  "
+        print(s.rstrip())
+
+    for i in range(1,n+1):
+        s = ''
+        for j in range(n-i):
+            s += " "
+        for j in range(1, i+1):
+            if i == n or j == 1 or j == i:
+                    s+="* "
+            else:
+                s+="  "
+        print(s.rstrip())
+printHollowHourglass(5)
+# output:
+# * * * * *
+#  *     *
+#   *   *
+#    * *
+#     *
+#    * *
+#   *   *
+#  *     *
+# * * * * *
+print("----------------------------")
+
+def printPascaltri(n):
+    for i in range(1,n+1):
+        s = ''
+        for j in range(n-i):
+            s += " "
+        for j in range(1, i+1):
+            if j == 1 or j == i:
+                    s+="1 "
+            else:
+                s+=str(i-1)
+                s+=" "
+        print(s)
+printPascaltri(5)
+# Output:
+#     1
+#    1 1
+#   1 2 1
+#  1 3 3 1
+# 1 4 4 4 1
+print("----------------------------")
+def printRightPascal(n):
+    n = math.ceil(n/2)
+    for i in range(1,n+1):
+        s = ''
+        for j in range(i):
+            s+= "*"
+
+        print(s)
+    for i in range(2,n+1):
+        s = ''
+        for j in range(n-i+1):
+            s+= "*"
+
+        print(s)
+printRightPascal(5)
