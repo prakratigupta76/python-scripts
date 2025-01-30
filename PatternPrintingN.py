@@ -677,3 +677,10 @@ def printRightPascal(n):
 
         print(s)
 printRightPascal(5)
+# output:
+# *
+# **
+# ***
+# **
+# *
+print("----------------------------")
