@@ -16,9 +16,15 @@ def printSumN(n):
         return result
     else:
         result = n + printSumN(n - 1)
-        print(result)
+        # print(result)
     return result
-printSumN(5)
+print(printSumN(5))
+
+# Output:
+# 3
+# 6
+# 10
+# 15
 print("---------------------------------")
 
 def printFactorial(n):
@@ -32,9 +38,15 @@ def printFactorial(n):
     return result
 printFactorial(5)
 
+# Output:
+# 2
+# 6
+# 24
+# 120
+
 print("---------------------------------")
 
-def printNthSequence(n):
+def nthSequence(n):
 
     if n == 1:
         result = 1
@@ -43,7 +55,92 @@ def printNthSequence(n):
         result = 2
         return result
     else:
-        result = printNthSequence(n-1) + printNthSequence(n-2)
-        print(result)
+        result = nthSequence(n-1) + nthSequence(n-2)
     return result
-printNthSequence(7)
+print(nthSequence(7))
+# Output:
+# 3
+# 5
+# 3
+# 8
+# 3
+# 5
+# 13
+# 3
+# 5
+# 3
+# 8
+# 21
+
+print("---------------------------------")
+# print name n times
+def function(i, n):
+
+    if i > n:
+        return
+    print ("Prakrati")
+    function(i+1, n)
+function(1, 5)
+
+# Output:
+# Prakrati
+# Prakrati
+# Prakrati
+# Prakrati
+# Prakrati
+print("---------------------------------")
+
+
+#print Linearly form 1 to n
+# def print1toN(i,n):
+#     if i > n:
+#         return
+#     print(i)
+#     print1toN(i+1, n)
+# print1toN(1, 5)
+
+def print1toN(n):
+    if n == 0:
+        return 
+    
+    print1toN(n-1)
+    print(n)
+
+print1toN(5)
+# Output:
+# 1
+# 2
+# 3
+# 4
+# 5
+print("---------------------------------")
+
+#print form n to 1
+def revprintNto1(n):
+    if n == 0:
+        return
+    revprintNto1(n-1)
+print(revprintNto1(5))
+
+# def revprintNto1(i, n):
+#     if i > n:
+#         return
+#     revprintNto1(i+1, n)
+#     print(i)
+# revprintNto1(1,5)
+
+# def revprintNto1(i, n):
+#     if i < 1:
+#         return
+#     print(i)
+#     revprintNto1(i- 1, n)
+# revprintNto1(5,5)
+
+# output:
+# 5
+# 4
+# 3
+# 2
+# 1
+print("---------------------------------")
+
