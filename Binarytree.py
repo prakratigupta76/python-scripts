@@ -246,3 +246,330 @@ print("Maximum value in the tree:", tree.max_value(tree.root))  # Output: 6
 
 print("Minimum value in the tree:", tree.min_value(tree.root))  # Output: 1
     
+
+print ()
+print ()
+
+# Binary search tree (BST):
+print("Binary search tree (BST):")
+print ()
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+class BST:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, root, key):
+        if root is None:
+            return Node(key)
+        if key < root.data:
+            root.left = self.insert(root.left, key)
+        else:
+            root.right = self.insert(root.right, key)
+        return root
+
+    def inorder(self, root):
+        if root:
+            self.inorder(root.left)
+            print(root.data, end=" ")
+            self.inorder(root.right)
+
+    def search(self, root, key):
+        # if root is None or root.data == key:
+        #     return root is not None
+        if root is None:
+            return False
+        if root.data == key:
+            return True
+        if key < root.data:
+            return self.search(root.left, key)
+        else:
+            return self.search(root.right, key)
+
+
+    def delete(self, root, key):
+        if root is None:
+            return root
+
+        if key < root.data:
+            root.left = self.delete(root.left, key)
+        elif key > root.data:
+            root.right = self.delete(root.right, key)
+        else:
+            if root.left and root.right is None:
+                return root
+            if root.left is None:
+                return root.right
+            elif root.right is None:
+                return root.left
+            
+            else:
+                temp = self.find_min(root.right)
+                root.data = temp.data
+                root.right = self.delete(root.right, temp.data)
+
+        return root
+
+    def find_min(self, node):
+        while node.left:
+            node = node.left
+        return node
+
+bst = BST()
+bst.root = bst.insert(None, 50)
+bst.insert(bst.root, 30)
+bst.insert(bst.root, 70)
+bst.insert(bst.root, 20)
+bst.insert(bst.root, 40)
+bst.insert(bst.root, 60)
+bst.insert(bst.root, 80)
+
+print("Inorder travasal of BST: ")
+bst.inorder(bst.root)
+print ()
+print ()
+print(bst.search(bst.root, 40))
+print(bst.search(bst.root, 100))
+print()
+bst.root = bst.delete(bst.root, 50)
+
+print("Inorder travasal after deleting 50: ")
+bst.inorder(bst.root)
+print()
+print()
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+class BST:
+    def __init__(self):
+        self.root = None
+    
+    def insertNew(self, root, key):
+        if root is None:
+            return Node(key)
+        
+        if key < root.value:
+            root.left = self.insertNew(root.left, key)
+        elif key > root.value:
+            root.right = self.insertNew(root.right, key)
+        return root
+
+    def in_order(self,root):
+        if root:
+            self.in_order(root.left)
+            print(root.value, end=" ")
+            self.in_order(root.right)
+            
+    def height(self, root):
+        if root is None:
+            return 0
+        return 1 + max(self.height(root.left), self.height(root.right))
+
+
+    def isBST(self, root, min_val=float('-inf'), max_val=float('inf')):
+        if root is None:
+            return True
+        if not (min_val < root.value < max_val):
+            return False
+        return self.isBST(root.left, min_val, root.value) and self.isBST(root.right, root.value, max_val)
+
+bst = BST()
+bst.root = bst.insertNew(None, 40)
+bst.insertNew(bst.root, 20)
+bst.insertNew(bst.root, 10)
+bst.insertNew(bst.root, 30)
+bst.insertNew(bst.root, 60)
+bst.insertNew(bst.root, 50)
+bst.insertNew(bst.root, 70)
+bst.insertNew(bst.root, 25)
+print("print Example code inorder travarsal:")
+bst.in_order(bst.root)
+print()
+print("Height of BST:", bst.height(bst.root))
+
+print(bst.isBST(bst.root))
+print()
+
+
+bst = BST()
+bst.root = bst.insertNew(None, 50)
+bst.insertNew(bst.root, 30)
+bst.insertNew(bst.root, 70)
+
+bst.in_order(bst.root)
+print()
+print("Height of new BST:",bst.height(bst.root))
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+class BST:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, root, key):
+        if root is None:
+            return Node(key)
+
+        if key < root.data:
+            root.left = self.insert(root.left, key)
+        elif key > root.data:
+            root.right = self.insert(root.right, key)
+        return root
+
+    def printInRange(self, root, x, y):
+        if root is None:
+            return
+
+        if (root.data >= x and root.data <= y):
+            self.printInRange(root.left, x, y)
+            print(root.data, end= " ")
+            self.printInRange(root.right, x, y)
+        elif (root.data >= y):
+            self.printInRange(root.left, x, y)
+        else:
+            self.printInRange(root.right, x, y)
+
+    def in_order(self,root):
+        if root:
+            self.in_order(root.left)
+            print(root.data, end=" ")
+            self.in_order(root.right)
+
+    # def printRoot2Leaf(self, root, path):
+    #     if root is None:
+    #         return root
+    #     path = []
+    #     path.append(root.data)
+    #     self.printRoot2Leaf(root.left, path)
+    #     self.printRoot2Leaf(root.right, path)
+    #     path.remove(path[-1])
+
+    def lca(self, root, p, q):
+        if root is None or root == p or root == q:
+            return root
+
+        left_lca = self.lca(root.left, p, q)
+        right_lca = self.lca(root.right, p, q)
+
+        if left_lca and right_lca:
+            return root
+        
+        return left_lca if left_lca else right_lca
+
+    def find_node(self, root, key):
+        """Finds and returns the node with the given key"""
+        if root is None or root.data == key:
+            return root
+        if key < root.data:
+            return self.find_node(root.left, key)
+        return self.find_node(root.right, key)
+
+    def diameter(self, root):
+        # Initialize variable to store max diameter
+        self.max_diameter = 0
+
+        def height(node):
+            if node is None:
+                return 0
+            
+            # Recursively calculate height of left and right subtrees
+            left_height = height(node.left)
+            right_height = height(node.right)
+
+            # Update max diameter found so far
+            self.max_diameter = max(self.max_diameter, left_height + right_height)
+
+            # Return the height of the current node
+            return 1 + max(left_height, right_height)
+
+        height(root)  # Start calculating height from the root
+        return self.max_diameter
+
+    def root_to_leaf_path(self, root):
+        def dfs(node, path):
+            if node is None:
+                return 
+
+            path.append(node.data)
+
+            if node.left is None and node.right is None:
+                print(" -> ".join(map(str, path)))
+
+            else:
+                dfs(node.left, path)
+                dfs(node.right, path)
+
+            path.pop()
+
+        dfs(root, [])
+
+    def sum_of_nodes(self, root):
+        if root is None:
+            return 0
+        return root.data + self.sum_of_nodes(root.left) + self.sum_of_nodes(root.right)
+
+    def sum_of_leaf_nodes(self, root):
+        if root is None:
+            return 0
+
+        if root.left is None and root.right is None:
+            return root.data
+
+        return self.sum_of_leaf_nodes(root.left) + self.sum_of_leaf_nodes(root.right)
+
+
+# Create BST
+bst = BST()
+bst.root = bst.insert(None, 8)
+bst.insert(bst.root, 5)
+bst.insert(bst.root, 3)
+bst.insert(bst.root, 1)
+bst.insert(bst.root, 4)
+bst.insert(bst.root, 6)
+bst.insert(bst.root, 10)
+bst.insert(bst.root, 11)
+bst.insert(bst.root, 14)
+bst.insert(bst.root, 9)
+
+# Print Inorder Traversal
+bst.in_order(bst.root)
+print()
+
+# Print nodes in range 3 to 12
+bst.printInRange(bst.root, 3, 12)
+print()
+
+# Find LCA
+p = bst.find_node(bst.root, 9)
+q = bst.find_node(bst.root, 11)
+
+lca = bst.lca(bst.root, p, q)
+if lca:
+    print("Lowest Common Ancestor of 9 and 11 is:", lca.data)
+else:
+    print("Lowest Common Ancestor not found.")
+
+print("Diameter of the binary tree:", bst.diameter(bst.root))  # Output:6
+bst.in_order(bst.root)
+print()
+
+# Print all root-to-leaf paths
+print("Root-to-leaf paths in the binary tree:")
+bst.root_to_leaf_path(bst.root)
+
+print("Sum of all nodes in the binary tree:", bst.sum_of_nodes(bst.root))
+
+print("Sum of all leaf nodes:", bst.sum_of_leaf_nodes(bst.root))
