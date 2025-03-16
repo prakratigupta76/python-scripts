@@ -684,3 +684,47 @@ printRightPascal(5)
 # **
 # *
 print("----------------------------")
+
+
+def printNumbpattern(n):
+    s = 1
+    for i in range(1,n+1):
+        for j in range(i):
+            print(s, end =" ")
+            s += 1
+        print()
+
+printNumbpattern(5)
+
+
+def printDiamand2(n):
+    n = math.ceil(n/2)
+    for i in range(1, n+1):
+        s = ''
+        for j in range(n-i):
+            s+=" "
+        for j in range(1,i+1):
+            s+="*"
+            s+=" "
+        print(s)
+    
+    for i in range(n):
+        s = ''
+        for j in range(1,i+1):
+            s+=" "
+        for j in range(n-i):
+            s+="*"
+            s+=" "
+
+        print(s)
+printDiamand2(5)
+
+def printpastri(n):
+    for i in range(1,n+1):
+        s = ''
+        for j in range(n-i):
+            s+=" "
+        for j in range(1,i+1):
+            s+=str(j)
+            s+=" "
+        print(s)
