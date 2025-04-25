@@ -70,3 +70,42 @@ def printPyramid(n):
                 s += "*"
         print(s)
 printPyramid(5)
+print()
+
+
+def printpascalTri(n):
+    for i in range(1, n+1):
+        s = ''
+        for j in range(n-i):
+            s += ' '
+        num = 1
+        for j in range(1, i+1):
+            s += str(num) + ' '
+            num = num * (i-j) // (j)
+        print(s)
+
+printpascalTri(5)
+print()
+
+def printrevpascalTri(n):
+    for i in range(n, 0, -1):
+        s = ''
+        for j in range(n-i):
+            s += ' '
+        num = 1
+        for j in range(1, i+1):
+            s += str(num) + ' '
+            num = num * (i-j) // (j)
+        print(s)
+
+printrevpascalTri(5)
+print()
+
+def printnumpattern(n):
+    for i in range(1, n+1):
+        s = ''
+        for j in range(i, i+n):
+            s += str((j - 1) % n + 1)
+        print(s)
+
+printnumpattern(5)
